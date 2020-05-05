@@ -14,10 +14,20 @@ app.use((req, res, next) => {
 
 
 
-mongoose.connect("mongodb://localhost:27017/OpenClassroom",{ useNewUrlParser: true });
+mongoose.connect("mongodb+srv://master:@$$mon254@cluster0-ncuc7.mongodb.net/test?retryWrites=true&w=majority")
+	.then(()=> {
+		console.log("successfully connected")
+	})
+	.catch((error)=>{
+		console.log("connection unsuccessful")
+		console.error(error);
+	})
+
 app.use(bodyparser.json());
 app.use("/api/stuff", stuffRoutes);
-app,use("/api/auth", userRouter);
+app.use("/api/auth", userRouter);
 
 
 module.exports = app;
+
+//

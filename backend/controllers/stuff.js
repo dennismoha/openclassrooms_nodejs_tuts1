@@ -82,7 +82,7 @@ exports. deleteThing =  (req,res,next)=> {
 };
 
 exports.displayThings = (req,res,next) => {
-	thing.find().then(
+	Thing.find().then(
 		(things) => {
 			res.status(200).json(things);
 		}
